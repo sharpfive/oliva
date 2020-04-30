@@ -281,15 +281,26 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
         return .div(
             .table(
                 .forEach(inningResults) { inningResult in
-                    .tr(
-                        .td(
-                            .text(inningResult.inningCount.frame),
-                            .text(inningResult.inningCount.count)
-                        ),
-                        .td(
-                            .text("results")
+                    .group([
+                        .tr(
+                            .td(
+                                .text(inningResult.inningCount.frame),
+                                .text(inningResult.inningCount.count)
+                            ),
+                            .td(
+                                .text("results")
+                            )
                         )
-                    )
+                    ])
+//                    .tr(
+//                        .td(
+//                            .text(inningResult.inningCount.frame),
+//                            .text(inningResult.inningCount.count)
+//                        ),
+//                        .td(
+//                            .text("results")
+//                        )
+//                    )
 //                    .forEach(inningResult.atBatResults) { atBatResult in
 ////                        .tr(
 ////                            .td(),
