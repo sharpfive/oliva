@@ -101,7 +101,7 @@ let gameItems = metadatas.map{ metadata in
 
 let gameMetaDatas: [GameMetaDataViewModel] = games.map {
     let urlString = "/game/\($0.gameId)/index.html"
-    return GameMetaDataViewModel(title: $0.title, detailURLString: urlString)
+    return GameMetaDataViewModel(title: $0.title, detailURLString: urlString, result: "Reds 4, Browns 3")
 }
 
 let team1Standings = TeamStandingsViewModel(teamName: "Reds", wins: "7", losses: "3", winPercentage: ".700")

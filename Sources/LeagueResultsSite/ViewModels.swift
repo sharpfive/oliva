@@ -42,6 +42,7 @@ struct LineScoreViewModel: Codable, Hashable {
 struct GameMetaDataViewModel: Codable, Hashable {
     let title: String
     let detailURLString: String
+    let result: String
 }
 
 struct LeagueResultsViewModel: Codable, Hashable {

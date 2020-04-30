@@ -94,32 +94,30 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
                     )
                 }
             )
-//            .forEach(standings.teamStandings) { teamsStandings in
-//                .div(
-//                    .table(
-//                        .tr(
-//                            .th("Name"),
-//                            .th("W"),
-//                            .th("L"),
-//                            .th("PCT")
-//                        ),
-//                        .forEach(
-//                    )
-//                )
-//            }
         )
     }
 
     func makeGameMetaDataNode(for gameMetaDatas: [GameMetaDataViewModel]) -> Node<HTML.BodyContext> {
         return .div(
-            .forEach(gameMetaDatas) { gameMetaData in
-                .div(
-                    .a(
-                        .href(gameMetaData.detailURLString),
-                        .text(gameMetaData.title)
+            .table(
+                .tr(
+                    .th("Matchup"),
+                    .th("Result")
+                ),
+                .forEach(gameMetaDatas) { gameMetaData in
+                    .tr(
+                        .td(
+                            .a(
+                                .href(gameMetaData.detailURLString),
+                                .text(gameMetaData.title)
+                            )
+                        ),
+                        .td(
+                            .text(gameMetaData.result)
+                        )
                     )
-                )
-            }
+                }
+            )
         )
     }
 
