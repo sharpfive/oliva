@@ -289,9 +289,12 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
                         .td(
                             .text("results")
                         )
-                    )//,
+                    )
 //                    .forEach(inningResult.atBatResults) { atBatResult in
-//                        .tr()
+////                        .tr(
+////                            .td(),
+////                            .td()
+////                        )
 //                    }
                 }
             )
