@@ -35,8 +35,17 @@ let inningCounts: [InningCountViewModel] = Array(0...8).flatMap {
     ]
 }
 
+let atBatResults: [AtBatResultViewModel] = [
+    AtBatResultViewModel(batterName: "Bill", pitcherName: "Carl", result: "SO"),
+    AtBatResultViewModel(batterName: "Bob", pitcherName: "Carl", result: "1B"),
+    AtBatResultViewModel(batterName: "Steve", pitcherName: "Carl", result: "W"),
+    AtBatResultViewModel(batterName: "Joe", pitcherName: "Carl", result: "Out"),
+    AtBatResultViewModel(batterName: "John", pitcherName: "Carl", result: "HBP"),
+    AtBatResultViewModel(batterName: "Bill", pitcherName: "Carl", result: "Out"),
+]
+
 let inningResults = inningCounts.map {
-    InningResultViewModel(inningCount: $0, atBats: [AtBatResultViewModel]())
+    InningResultViewModel(inningCount: $0, atBats: atBatResults)
 }
 
 let gameViewModel = GameViewModel(gameId: "0", title: "Reds at Browns, April 13 2020", lineScore: lineScoreViewModel, inningResults: inningResults)
