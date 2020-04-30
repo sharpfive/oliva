@@ -268,9 +268,32 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
                 .h1(.text(game.title)),
                 .div(
                     .class("linescore"),
-                    //.lineScore(game.lineScore),
                     makeLinescoreNode(for: game.lineScore)
+                ),
+                .div(
+                    makeInningResultsNode(for: game.inningResults)
                 )
+            )
+        )
+    }
+
+    func makeInningResultsNode(for inningResults: [InningResultViewModel]) -> Node<HTML.BodyContext> {
+        return .div(
+            .table(
+                .forEach(inningResults) { inningResult in
+                    .tr(
+                        .td(
+                            .text(inningResult.inningCount.frame),
+                            .text(inningResult.inningCount.count)
+                        ),
+                        .td(
+                            .text("results")
+                        )
+                    )//,
+//                    .forEach(inningResult.atBatResults) { atBatResult in
+//                        .tr()
+//                    }
+                }
             )
         )
     }
