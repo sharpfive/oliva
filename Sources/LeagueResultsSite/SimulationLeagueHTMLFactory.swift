@@ -280,6 +280,12 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func makeInningResultsNode(for inningResults: [InningResultViewModel]) -> Node<HTML.BodyContext> {
         return .div(
             .table(
+                .tr(
+                    .td("Inning"),
+                    .td("Batter"),
+                    .td("Pitcher"),
+                    .td("Result")
+                ),
                 .forEach(inningResults) { inningResult in
                     .group([
                         .tr(
@@ -287,10 +293,18 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
                                 .text(inningResult.inningCount.frame),
                                 .text(inningResult.inningCount.count)
                             ),
-                            .td(
-                                .text("results")
-                            )
+                            .td(),
+                            .td(),
+                            .td()
                         )
+//                        .forEach(inningResult.atBats) { atBatResult in
+//                            .tr(
+//                                .td(),
+//                                .td(
+//
+//                                )
+//                            )
+//                        }
                     ])
 //                    .tr(
 //                        .td(
