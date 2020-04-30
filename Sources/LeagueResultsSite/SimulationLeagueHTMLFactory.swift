@@ -70,17 +70,59 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
                         .h1(
                             .text("League: \(leagueName) Results")
                         ),
-                        .forEach(gameMetaDataViewModels) { gameMetaData in
-                            .div(
-                                .a(
-                                    .href(gameMetaData.detailURLString),
-                                    .text(gameMetaData.title)
-                                )
-                            )
-                        }
+                        makeStandingsNode(for: leagueResults.standings),
+                        makeGameMetaDataNode(for: gameMetaDataViewModels)
                     )
         )
     }
+
+    func makeStandingsNode(for standings: StandingsViewModel) -> Node<HTML.BodyContext> {
+        return .div(
+            .table(
+                .tr(
+                    .th("Name"),
+                    .th("W"),
+                    .th("L"),
+                    .th("PCT")
+                ),
+                .forEach(standings.teamStandings) { teamsStandings in
+                    .tr(
+                        .td(.text(teamsStandings.teamName)),
+                        .td(.text(teamsStandings.wins)),
+                        .td(.text(teamsStandings.losses)),
+                        .td(.text(teamsStandings.winPercentage))
+                    )
+                }
+            )
+//            .forEach(standings.teamStandings) { teamsStandings in
+//                .div(
+//                    .table(
+//                        .tr(
+//                            .th("Name"),
+//                            .th("W"),
+//                            .th("L"),
+//                            .th("PCT")
+//                        ),
+//                        .forEach(
+//                    )
+//                )
+//            }
+        )
+    }
+
+    func makeGameMetaDataNode(for gameMetaDatas: [GameMetaDataViewModel]) -> Node<HTML.BodyContext> {
+        return .div(
+            .forEach(gameMetaDatas) { gameMetaData in
+                .div(
+                    .a(
+                        .href(gameMetaData.detailURLString),
+                        .text(gameMetaData.title)
+                    )
+                )
+            }
+        )
+    }
+
 
     func leagueHTML(for metadata: SimulationLeagueWebsite.ItemMetadata ) -> HTML {
 
