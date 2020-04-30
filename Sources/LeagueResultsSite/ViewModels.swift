@@ -65,6 +65,7 @@ struct GameViewModel: Codable, Hashable {
     let gameId: String
     let title: String
     let lineScore: LineScoreViewModel
+    let inningResults: [InningResultViewModel]
 }
 
 enum InningFrame {
@@ -72,7 +73,19 @@ enum InningFrame {
     case bottom
 }
 
-struct InningCountViewModel {
+struct InningCountViewModel: Codable, Hashable {
     let frame: String
+    let count: String
     let outs: String
+}
+
+struct InningResultViewModel: Codable, Hashable {
+    let inningCount: InningCountViewModel
+    let atBats: [AtBatResultViewModel]
+}
+
+struct AtBatResultViewModel: Codable, Hashable {
+    let batterName: String
+    let pitcherName: String
+    let result: String
 }

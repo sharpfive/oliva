@@ -28,10 +28,21 @@ let lineScoreViewModel = LineScoreViewModel(awayTeam: "Reds",
                                    awayTeamFinalScore: "3",
                                    homeTeamFinalScore: "6")
 
-let gameViewModel = GameViewModel(gameId: "0", title: "Reds at Browns, April 13 2020", lineScore: lineScoreViewModel)
+let inningCounts: [InningCountViewModel] = Array(0...8).flatMap {
+    return [
+        InningCountViewModel(frame: "Top", count: "\($0)", outs: "3"),
+        InningCountViewModel(frame: "Bottom", count: "\($0)", outs: "3")
+    ]
+}
+
+let inningResults = inningCounts.map {
+    InningResultViewModel(inningCount: $0, atBats: [AtBatResultViewModel]())
+}
+
+let gameViewModel = GameViewModel(gameId: "0", title: "Reds at Browns, April 13 2020", lineScore: lineScoreViewModel, inningResults: inningResults)
 
 func createGame(with gameId: String, dateString: String) -> GameViewModel {
-    return GameViewModel(gameId: gameId, title: "Reds at Browns, April \(dateString) 2020", lineScore: lineScoreViewModel)
+    return GameViewModel(gameId: gameId, title: "Reds at Browns, April \(dateString) 2020", lineScore: lineScoreViewModel, inningResults: inningResults)
 }
 
 let games = [
