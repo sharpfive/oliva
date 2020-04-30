@@ -104,4 +104,10 @@ let gameMetaDatas: [GameMetaDataViewModel] = games.map {
     return GameMetaDataViewModel(title: $0.title, detailURLString: urlString)
 }
 
-let leagueResults = LeagueResultsViewModel(games: gameMetaDatas)
+let team1Standings = TeamStandingsViewModel(teamName: "Reds", wins: "7", losses: "3", winPercentage: ".700")
+let team2Standings = TeamStandingsViewModel(teamName: "Browns", wins: "3", losses: "7", winPercentage: ".300")
+
+let teamStandings = [team1Standings, team2Standings]
+let standings = StandingsViewModel(teamStandings: teamStandings)
+
+let leagueResults = LeagueResultsViewModel(games: gameMetaDatas, standings: standings)

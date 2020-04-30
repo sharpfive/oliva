@@ -46,10 +46,32 @@ struct GameMetaDataViewModel: Codable, Hashable {
 
 struct LeagueResultsViewModel: Codable, Hashable {
     let games: [GameMetaDataViewModel]
+    let standings: StandingsViewModel
+}
+
+struct StandingsViewModel: Codable, Hashable {
+    let teamStandings: [TeamStandingsViewModel]
+}
+
+struct TeamStandingsViewModel: Codable, Hashable {
+    let teamName: String
+    let wins: String
+    let losses: String
+    let winPercentage: String
 }
 
 struct GameViewModel: Codable, Hashable {
     let gameId: String
     let title: String
     let lineScore: LineScoreViewModel
+}
+
+enum InningFrame {
+    case top
+    case bottom
+}
+
+struct InningCountViewModel {
+    let frame: String
+    let outs: String
 }
