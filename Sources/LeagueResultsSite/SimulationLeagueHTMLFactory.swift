@@ -316,6 +316,17 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
         )
     }
 
+    func makeBoxScoreNode(for boxScore: BoxScoreViewModel) -> Node<HTML.BodyContext> {
+        return .div(
+            makeTeamBoxScoreNode(for: boxScore.awayTeam),
+            makeTeamBoxScoreNode(for: boxScore.homeTeam)
+        )
+    }
+
+    func makeTeamBoxScoreNode(for teamBoxScore: TeamBoxScoreViewModel) -> Node<HTML.BodyContext> {
+        return .div()
+    }
+
     func makeLinescoreNode(for lineScore: LineScoreViewModel) -> Node<HTML.BodyContext> {
         return .div(
                 .class("linescore"),
