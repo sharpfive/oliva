@@ -39,6 +39,34 @@ struct LineScoreViewModel: Codable, Hashable {
     let homeTeamFinalScore: String
 }
 
+struct BoxScoreViewModel: Codable, Hashable {
+    let homeTeam: TeamBoxScoreViewModel
+    let awayTeam: TeamBoxScoreViewModel
+}
+
+struct TeamBoxScoreViewModel: Codable, Hashable {
+    let batters: [BatterBoxScore]
+    let pitchers: [PitcherBoxScore]
+}
+
+struct BatterBoxScore: Codable, Hashable {
+    let playerName: String
+    let atBats: String
+    let runs: String
+    let hits: String
+    let rbis: String
+}
+
+struct PitcherBoxScore: Codable, Hashable {
+    let playerName: String
+    let inningsPitched: String
+    let hits: String
+    let runs: String
+    let walks: String
+    let strikeouts: String
+    let homeRuns: String
+}
+
 struct GameMetaDataViewModel: Codable, Hashable {
     let title: String
     let detailURLString: String

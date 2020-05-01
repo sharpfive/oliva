@@ -30,8 +30,8 @@ let lineScoreViewModel = LineScoreViewModel(awayTeam: "Reds",
 
 let inningCounts: [InningCountViewModel] = Array(0...8).flatMap {
     return [
-        InningCountViewModel(frame: "Top", count: "\($0)", outs: "3"),
-        InningCountViewModel(frame: "Bottom", count: "\($0)", outs: "3")
+        InningCountViewModel(frame: "Top", count: "\($0+1)", outs: "3"),
+        InningCountViewModel(frame: "Bottom", count: "\($0+1)", outs: "3")
     ]
 }
 
@@ -101,6 +101,48 @@ let team2Pitchers = [
     PlayerViewModel(fullName: "Jose Berrios"),
     PlayerViewModel(fullName: "Jose Quintana"),
     PlayerViewModel(fullName: "Jacob deGrom"),
+]
+
+let team1BatterBoxScores = [
+    BatterBoxScore(playerName: "Charlie Blackmon", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Jose Ramirez", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Danny Santana", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Bill Zuber", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Cesar Hernandez", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Rhys Hoskins", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Byron Buxton", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Shin-Soo Choo", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Lew Ford", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+]
+
+let team1PitcherBoxScores = [
+    PitcherBoxScore(playerName: "Rich Hill", inningsPitched: "9.0", hits: "7", runs: "3", walks: "3", strikeouts: "6", homeRuns: "1")
+]
+
+let team2BatterBoxScores = [
+    BatterBoxScore(playerName: "Andrew McCutchen", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Miguel Sano", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Yasiel Puig", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Ronald Acuna Jr.", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Cesar Hernandez", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Kyle Tucker", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Austin Riley", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Nolan Arenado", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "C.J. Cron", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+]
+
+let team2PitcherBoxScores = [
+    PitcherBoxScore(playerName: "Jacob deGrom", inningsPitched: "9.0", hits: "7", runs: "3", walks: "3", strikeouts: "6", homeRuns: "1")
+]
+
+
+let team1BoxScore = TeamBoxScoreViewModel(batters: team1BatterBoxScores, pitchers: team1PitcherBoxScores)
+let team2BoxScore = TeamBoxScoreViewModel(batters: team2BatterBoxScores, pitchers: team2PitcherBoxScores)
+
+let boxScore = BoxScoreViewModel(homeTeam: team1BoxScore, awayTeam: team2BoxScore)
+
+let team2PitcherBoxScore = [
+    PitcherBoxScore(playerName: "Robbie Ray", inningsPitched: "9.0", hits: "7", runs: "3", walks: "3", strikeouts: "6", homeRuns: "1")
 ]
 
 let team1 = TeamViewModel(name: "Reds", batters: team1Batters, pitchers: team1Pitchers)

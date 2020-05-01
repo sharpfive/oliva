@@ -290,37 +290,27 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
                     .group([
                         .tr(
                             .td(
-                                .text(inningResult.inningCount.frame),
-                                .text(inningResult.inningCount.count)
+                                .text("\(inningResult.inningCount.frame) \(inningResult.inningCount.count)")
                             ),
                             .td(),
                             .td(),
                             .td()
-                        )
-//                        .forEach(inningResult.atBats) { atBatResult in
-//                            .tr(
-//                                .td(),
-//                                .td(
-//
-//                                )
-//                            )
-//                        }
+                        ),
+                        .forEach(inningResult.atBats) { atBatResult in
+                            .tr(
+                                .td(),
+                                .td(
+                                    .text(atBatResult.batterName)
+                                ),
+                                .td(
+                                    .text(atBatResult.pitcherName)
+                                ),
+                                .td(
+                                    .text(atBatResult.result)
+                                )
+                            )
+                        }
                     ])
-//                    .tr(
-//                        .td(
-//                            .text(inningResult.inningCount.frame),
-//                            .text(inningResult.inningCount.count)
-//                        ),
-//                        .td(
-//                            .text("results")
-//                        )
-//                    )
-//                    .forEach(inningResult.atBatResults) { atBatResult in
-////                        .tr(
-////                            .td(),
-////                            .td()
-////                        )
-//                    }
                 }
             )
         )
