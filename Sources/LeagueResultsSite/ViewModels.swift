@@ -94,6 +94,7 @@ struct GameViewModel: Codable, Hashable {
     let title: String
     let lineScore: LineScoreViewModel
     let inningResults: [InningResultViewModel]
+    let boxScore: BoxScoreViewModel
 }
 
 enum InningFrame {

@@ -48,10 +48,10 @@ let inningResults = inningCounts.map {
     InningResultViewModel(inningCount: $0, atBats: atBatResults)
 }
 
-let gameViewModel = GameViewModel(gameId: "0", title: "Reds at Browns, April 13 2020", lineScore: lineScoreViewModel, inningResults: inningResults)
+let gameViewModel = GameViewModel(gameId: "0", title: "Reds at Browns, April 13 2020", lineScore: lineScoreViewModel, inningResults: inningResults, boxScore: boxScore)
 
 func createGame(with gameId: String, dateString: String) -> GameViewModel {
-    return GameViewModel(gameId: gameId, title: "Reds at Browns, April \(dateString) 2020", lineScore: lineScoreViewModel, inningResults: inningResults)
+    return GameViewModel(gameId: gameId, title: "Reds at Browns, April \(dateString) 2020", lineScore: lineScoreViewModel, inningResults: inningResults, boxScore: boxScore)
 }
 
 let games = [
