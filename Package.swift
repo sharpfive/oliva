@@ -12,6 +12,10 @@ let package = Package(
         .target(
             name: "LeagueResultsSite",
             dependencies: ["Plot", "Publish"]
+        ),
+        .target(
+            name: "ViewModels",
+            dependencies: []
         )
     ]
 )
