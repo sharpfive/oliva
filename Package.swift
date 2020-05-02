@@ -6,6 +6,7 @@ let package = Package(
     name: "Oliva",
     products: [
         .library(name: "Oliva", targets: ["ViewModels"]),
+        .executable(name: "LeagueResultsSite", targets: ["LeagueResultsSite"])
     ],
     dependencies: [
     .package(url: "https://github.com/JohnSundell/Plot.git", from: "0.7.0"),
