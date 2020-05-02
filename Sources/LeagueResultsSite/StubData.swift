@@ -135,9 +135,8 @@ let team2PitcherBoxScores = [
     PitcherBoxScore(playerName: "Jacob deGrom", inningsPitched: "9.0", hits: "7", runs: "3", walks: "3", strikeouts: "6", homeRuns: "1")
 ]
 
-
-let team1BoxScore = TeamBoxScoreViewModel(batters: team1BatterBoxScores, pitchers: team1PitcherBoxScores)
-let team2BoxScore = TeamBoxScoreViewModel(batters: team2BatterBoxScores, pitchers: team2PitcherBoxScores)
+let team1BoxScore = TeamBoxScoreViewModel(teamName: "Reds", batters: team1BatterBoxScores, pitchers: team1PitcherBoxScores)
+let team2BoxScore = TeamBoxScoreViewModel(teamName: "Browns", batters: team2BatterBoxScores, pitchers: team2PitcherBoxScores)
 
 let boxScore = BoxScoreViewModel(homeTeam: team1BoxScore, awayTeam: team2BoxScore)
 

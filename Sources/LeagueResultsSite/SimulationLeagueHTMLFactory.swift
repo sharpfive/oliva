@@ -267,10 +267,16 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
             .body(
                 .h1(.text(game.title)),
                 .div(
+                    .h2(.text("Line Score")),
                     .class("linescore"),
                     makeLinescoreNode(for: game.lineScore)
                 ),
                 .div(
+                    .h2(.text("Box Score")),
+                    makeBoxScoreNode(for: game.boxScore)
+                ),
+                .div(
+                    .h2(.text("Play By Play")),
                     makeInningResultsNode(for: game.inningResults)
                 )
             )
@@ -325,7 +331,7 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
 
     func makeTeamBoxScoreNode(for teamBoxScore: TeamBoxScoreViewModel) -> Node<HTML.BodyContext> {
         return .div(
-            .h2(.text("Batters")),
+            .h3(.text("\(teamBoxScore.teamName) Batters")),
             .class("teamBoxScore"),
             .table(
                 .tr(
@@ -338,12 +344,34 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
                 ),
                 .forEach(teamBoxScore.batters) { batter in
                     .tr(
-                        .th(.text(batter.playerName)),
-                        .th(.text(batter.atBats)),
-                        .th(.text(batter.runs)),
-                        .th(.text(batter.hits)),
-                        .th(.text(batter.rbis)),
-                        .th(.text(batter.strikeouts))
+                        .td(.text(batter.playerName)),
+                        .td(.text(batter.atBats)),
+                        .td(.text(batter.runs)),
+                        .td(.text(batter.hits)),
+                        .td(.text(batter.rbis)),
+                        .td(.text(batter.strikeouts))
+                    )
+                }
+            ),
+            .h3(.text("\(teamBoxScore.teamName) Pitchers")),
+            .class("teamBoxScore"),
+            .table(
+                .tr(
+                    .th("Name"),
+                    .th("IP"),
+                    .th("H"),
+                    .th("R"),
+                    .th("BB"),
+                    .th("K")
+                ),
+                .forEach(teamBoxScore.pitchers) { batter in
+                    .tr(
+                        .td(.text(batter.playerName)),
+                        .td(.text(batter.inningsPitched)),
+                        .td(.text(batter.hits)),
+                        .td(.text(batter.runs)),
+                        .td(.text(batter.walks)),
+                        .td(.text(batter.strikeouts))
                     )
                 }
             )

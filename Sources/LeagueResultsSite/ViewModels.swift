@@ -45,6 +45,7 @@ struct BoxScoreViewModel: Codable, Hashable {
 }
 
 struct TeamBoxScoreViewModel: Codable, Hashable {
+    let teamName: String
     let batters: [BatterBoxScore]
     let pitchers: [PitcherBoxScore]
 }
