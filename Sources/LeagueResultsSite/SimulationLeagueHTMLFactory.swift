@@ -324,7 +324,30 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     }
 
     func makeTeamBoxScoreNode(for teamBoxScore: TeamBoxScoreViewModel) -> Node<HTML.BodyContext> {
-        return .div()
+        return .div(
+            .h2(.text("Batters")),
+            .class("teamBoxScore"),
+            .table(
+                .tr(
+                    .th("Name"),
+                    .th("AB"),
+                    .th("R"),
+                    .th("H"),
+                    .th("RBI"),
+                    .th("K")
+                ),
+                .forEach(teamBoxScore.batters) { batter in
+                    .tr(
+                        .th(.text(batter.playerName)),
+                        .th(.text(batter.atBats)),
+                        .th(.text(batter.runs)),
+                        .th(.text(batter.hits)),
+                        .th(.text(batter.rbis)),
+                        .th(.text(batter.strikeouts))
+                    )
+                }
+            )
+        )
     }
 
     func makeLinescoreNode(for lineScore: LineScoreViewModel) -> Node<HTML.BodyContext> {

@@ -104,15 +104,15 @@ let team2Pitchers = [
 ]
 
 let team1BatterBoxScores = [
-    BatterBoxScore(playerName: "Charlie Blackmon", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Jose Ramirez", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Danny Santana", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Bill Zuber", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Cesar Hernandez", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Rhys Hoskins", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Byron Buxton", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Shin-Soo Choo", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Lew Ford", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Charlie Blackmon", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Jose Ramirez", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Danny Santana", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "1"),
+    BatterBoxScore(playerName: "Bill Zuber", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Cesar Hernandez", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "1"),
+    BatterBoxScore(playerName: "Rhys Hoskins", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Byron Buxton", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Shin-Soo Choo", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Lew Ford", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
 ]
 
 let team1PitcherBoxScores = [
@@ -120,15 +120,15 @@ let team1PitcherBoxScores = [
 ]
 
 let team2BatterBoxScores = [
-    BatterBoxScore(playerName: "Andrew McCutchen", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Miguel Sano", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Yasiel Puig", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Ronald Acuna Jr.", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Cesar Hernandez", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Kyle Tucker", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Austin Riley", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "Nolan Arenado", atBats: "4", runs: "1", hits: "2", rbis: "0"),
-    BatterBoxScore(playerName: "C.J. Cron", atBats: "4", runs: "1", hits: "2", rbis: "0"),
+    BatterBoxScore(playerName: "Andrew McCutchen", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Miguel Sano", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Yasiel Puig", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Ronald Acuna Jr.", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "1"),
+    BatterBoxScore(playerName: "Cesar Hernandez", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Kyle Tucker", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "Austin Riley", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "2"),
+    BatterBoxScore(playerName: "Nolan Arenado", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
+    BatterBoxScore(playerName: "C.J. Cron", atBats: "4", runs: "1", hits: "2", rbis: "0", strikeouts: "0"),
 ]
 
 let team2PitcherBoxScores = [

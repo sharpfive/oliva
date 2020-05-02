@@ -55,6 +55,7 @@ struct BatterBoxScore: Codable, Hashable {
     let runs: String
     let hits: String
     let rbis: String
+    let strikeouts: String
 }
 
 struct PitcherBoxScore: Codable, Hashable {
