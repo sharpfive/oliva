@@ -6,6 +6,7 @@ let package = Package(
     name: "Oliva",
     products: [
         .library(name: "Oliva", targets: ["OlivaDomain"]),
+        .library(name: "SimulationLeagueSiteGenerator", targets: ["SimulationLeagueSiteGenerator"]),
         .executable(name: "LeagueResultsSite", targets: ["LeagueResultsSite"])
     ],
     dependencies: [
@@ -15,11 +16,15 @@ let package = Package(
     targets: [
         .target(
             name: "LeagueResultsSite",
-            dependencies: ["Plot", "Publish"]
+            dependencies: ["Plot", "Publish", "OlivaDomain", "SimulationLeagueSiteGenerator"]
         ),
         .target(
             name: "OlivaDomain",
             dependencies: []
+        ),
+        .target(
+            name: "SimulationLeagueSiteGenerator",
+            dependencies: ["Plot", "Publish", "OlivaDomain"]
         )
     ]
 )

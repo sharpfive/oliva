@@ -6,38 +6,17 @@
 //
 
 import Foundation
+import OlivaDomain
 import Plot
 import Publish
+import SimulationLeagueSiteGenerator
 
 let leagueName = "CIK"
 
-try SimulationLeagueWebsite().publish(
-    withTheme: .league,
-    additionalSteps: [
-        .addItem(Item(
-            path: "rosters",
-            sectionID: .rosters,
-            metadata: SimulationLeagueWebsite.ItemMetadata(
-                leagueName: leagueName,
-                teams: teams,
-                game: nil
-            ),
-            tags: ["roster"],
-            content: Content(
-                title: "Roster",
-                date: Date()
-            )
-        )),
-        .addItems(in: gameItems),
-        .addItem(Item(path: "leagueResults",
-                      sectionID: .leagueResults,
-                      metadata: SimulationLeagueWebsite.ItemMetadata(leagueName: leagueName,
-                                                              teams: teams,
-                                                              leagueResults: leagueResults),
-                                                              tags: ["leagueRosters"],
-                                                              content: Content(
-                                                                  title: "League Results",
-                                                                  date: Date()
-                                                              )))
-    ]
-)
+// This creates a lot of stub data and packages it into a website
+let leagueData = LeagueData(leagueName: leagueName,
+                            teams: teams,
+                            leagueResults: leagueResults,
+                            games: games)
+
+publishSimulationLeagueSite(from: leagueData)

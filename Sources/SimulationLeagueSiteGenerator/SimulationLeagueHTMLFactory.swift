@@ -5,6 +5,7 @@
 //  Created by Jaim Zuber on 4/13/20.
 //
 
+import OlivaDomain
 import Plot
 import Publish
 
@@ -62,13 +63,14 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
         let leagueResults = metadata.leagueResults!
         let gameMetaDataViewModels = leagueResults.games
 
+
         return HTML(
                     .head(
-                        .title(leagueName)
+                        .title(metadata.leagueName)
                     ),
                     .body(
                         .h1(
-                            .text("League: \(leagueName) Results")
+                            .text("League: \(metadata.leagueName) Results")
                         ),
                         makeStandingsNode(for: leagueResults.standings),
                         makeGameMetaDataNode(for: gameMetaDataViewModels)
@@ -128,12 +130,12 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
 
         return HTML(
             .head(
-                .title(leagueName)
+                .title(metadata.leagueName)
             ),
             .body(
                 .div(
                     .h1(
-                        .text("League: \(leagueName)")
+                        .text("League: \(metadata.leagueName)")
                     ),
                     .forEach(teams) { team in
                         .div(
