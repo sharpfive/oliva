@@ -12,6 +12,8 @@ import Publish
 class SimulationLeagueHTMLFactory: HTMLFactory {
     typealias Site = SimulationLeagueWebsite
 
+    var googleAnalyticsString: String?
+
     enum Errors: Error {
         case noItemHandlerForSection(Site.SectionID)
     }
@@ -22,6 +24,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
 
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title("Simulated Baseball Games")
             ),
             .body(
@@ -66,6 +70,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
 
         return HTML(
                     .head(
+                        .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                        .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                         .title(metadata.leagueName)
                     ),
                     .body(
@@ -130,6 +136,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
 
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title(metadata.leagueName)
             ),
             .body(
@@ -180,6 +188,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func aboutHTML() -> HTML {
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title("About")
             ),
             .body(
@@ -199,6 +209,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func defaultHTML(for section: Section<SimulationLeagueWebsite>) -> HTML {
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title("Section :\(section.id)")
             ),
             .body(
@@ -212,6 +224,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func makeRostersHTML(leagueName: String, teams: [TeamViewModel]) -> HTML {
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title(leagueName)
             ),
             .body(
@@ -262,6 +276,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func makeGameHTML(for game: GameViewModel) -> HTML {
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title(
                     game.title
                 )
@@ -434,6 +450,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func makePageHTML(for page: Page, context: PublishingContext<SimulationLeagueWebsite>) throws -> HTML {
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title("Page")
             ),
             .body(
@@ -447,6 +465,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func makeTagListHTML(for page: TagListPage, context: PublishingContext<SimulationLeagueWebsite>) throws -> HTML? {
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title("Tag List")
             ),
             .body(
@@ -460,6 +480,8 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func makeTagDetailsHTML(for page: TagDetailsPage, context: PublishingContext<SimulationLeagueWebsite>) throws -> HTML? {
         return HTML(
             .head(
+                .script(.async(), .src(googleAnalyticsSource(with: googleAnalyticsString))),
+                .script(appendGoogleAnalyticsInfo(with: googleAnalyticsString)),
                 .title("Tag Details")
             ),
             .body(

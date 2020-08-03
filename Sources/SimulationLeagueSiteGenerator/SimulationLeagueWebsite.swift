@@ -43,7 +43,38 @@ public struct SimulationLeagueWebsite: Website {
 }
 
 extension Theme where Site == SimulationLeagueWebsite {
-    static var league: Self {
-        Theme(htmlFactory: SimulationLeagueHTMLFactory())
+
+    static func setLeagueGoogleAnalyticsId(with googleAnalyticsId: String) {
+        // Not a terribly elegant way of passing in the parameter, but will do for now
+        let htmlFactory = SimulationLeagueHTMLFactory()
+        htmlFactory.googleAnalyticsString = googleAnalyticsId
+        Theme.league = Theme(htmlFactory: htmlFactory)
     }
+
+    static var league: Self = Theme(htmlFactory: SimulationLeagueHTMLFactory())
+}
+
+extension HTMLFactory {
+
+    func googleAnalyticsSource(with googleAnalyticsId: String?) -> String {
+        guard let googleAnalyticsId = googleAnalyticsId else { exit(0) }
+
+        return "https://www.googletagmanager.com/gtag/js?id=\(googleAnalyticsId)"
+    }
+
+    func appendGoogleAnalyticsInfo(with googleAnalyticsId: String?) -> Plot.Node<HTML.ScriptContext> {
+        guard let googleAnalyticsId = googleAnalyticsId else { return Plot.Node(stringLiteral: "")}
+
+        let string = """
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', '\(googleAnalyticsId)');
+        """
+
+        return Plot.Node<HTML.ScriptContext>(stringLiteral: string)
+    }
+
+
 }
