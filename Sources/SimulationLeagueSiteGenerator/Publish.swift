@@ -15,7 +15,7 @@ func createGameItem(from game: GameViewModel, leagueName: String, teams: [TeamVi
     return Item<SimulationLeagueWebsite>(path: "\(game.gameId)", sectionID: .game, metadata: metadata)
 }
 
-public func publishSimulationLeagueSite(from leagueData: LeagueData, googleAnalyticsId: String? = nil) {
+public func publishSimulationLeagueSite(from leagueData: LeagueData, googleAnalyticsId: String? = nil, at path: Path? = nil) {
 
     let gameItems = leagueData.games.map { game in
         return createGameItem(from: game,
@@ -28,7 +28,7 @@ public func publishSimulationLeagueSite(from leagueData: LeagueData, googleAnaly
     }
 
     try! SimulationLeagueWebsite().publish(
-        withTheme: .league,
+        withTheme: .league, at: path,
         additionalSteps: [
             .addItem(Item(
                 path: "rosters",
