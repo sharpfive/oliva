@@ -154,6 +154,8 @@ let teams = [
     team2
 ]
 
+let leagueName = "Sample League"
+
 let metadatas = games.map { game in
     return SimulationLeagueWebsite.ItemMetadata(leagueName: leagueName, teams: teams, game: game)
 }
