@@ -19,7 +19,6 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     }
 
     func makeIndexHTML(for index: Index, context: PublishingContext<SimulationLeagueWebsite>) throws -> HTML {
-
         let sections = context.sections
 
         return HTML(
@@ -66,7 +65,6 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
     func leagueResultsHTML(for metadata: SimulationLeagueWebsite.ItemMetadata ) -> HTML {
         let leagueResults = metadata.leagueResults!
         let gameMetaDataViewModels = leagueResults.games
-
 
         return HTML(
                     .head(
@@ -129,9 +127,7 @@ class SimulationLeagueHTMLFactory: HTMLFactory {
         )
     }
 
-
     func leagueHTML(for metadata: SimulationLeagueWebsite.ItemMetadata ) -> HTML {
-
         let teams = metadata.teams
 
         return HTML(

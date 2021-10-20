@@ -13,7 +13,10 @@ public struct LeagueData: Codable {
     public let leagueResults: LeagueResultsViewModel
     public let games: [GameViewModel]
 
-    public init(leagueName: String, teams: [TeamViewModel], leagueResults: LeagueResultsViewModel, games: [GameViewModel]) {
+    public init(leagueName: String,
+                teams: [TeamViewModel],
+                leagueResults: LeagueResultsViewModel,
+                games: [GameViewModel]) {
         self.leagueName = leagueName
         self.teams = teams
         self.leagueResults = leagueResults

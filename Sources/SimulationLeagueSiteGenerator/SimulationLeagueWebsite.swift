@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  SimulationLeagueWebsite.swift
 //  
 //
 //  Created by Jaim Zuber on 4/25/20.
@@ -25,13 +25,13 @@ public struct SimulationLeagueWebsite: Website {
         public let leagueResults: LeagueResultsViewModel?
 
         public init(leagueName: String,
-             teams: [TeamViewModel],
-             game: GameViewModel? = nil,
-             leagueResults: LeagueResultsViewModel? = nil) {
-            self.leagueName = leagueName
-            self.teams = teams
-            self.game = game
-            self.leagueResults = leagueResults
+                    teams: [TeamViewModel],
+                    game: GameViewModel? = nil,
+                    leagueResults: LeagueResultsViewModel? = nil) {
+                        self.leagueName = leagueName
+                        self.teams = teams
+                        self.game = game
+                        self.leagueResults = leagueResults
         }
     }
 
@@ -43,7 +43,6 @@ public struct SimulationLeagueWebsite: Website {
 }
 
 extension Theme where Site == SimulationLeagueWebsite {
-
     static func setLeagueGoogleAnalyticsId(with googleAnalyticsId: String) {
         // Not a terribly elegant way of passing in the parameter, but will do for now
         let htmlFactory = SimulationLeagueHTMLFactory()
@@ -55,9 +54,11 @@ extension Theme where Site == SimulationLeagueWebsite {
 }
 
 extension HTMLFactory {
-
     func googleAnalyticsSource(with googleAnalyticsId: String?) -> String {
-        guard let googleAnalyticsId = googleAnalyticsId else { exit(0) }
+        guard let googleAnalyticsId = googleAnalyticsId else {
+            print("Warning: no GoogleAnalyticsId specified")
+            return ""
+        }
 
         return "https://www.googletagmanager.com/gtag/js?id=\(googleAnalyticsId)"
     }
@@ -75,6 +76,4 @@ extension HTMLFactory {
 
         return Plot.Node<HTML.ScriptContext>(stringLiteral: string)
     }
-
-
 }

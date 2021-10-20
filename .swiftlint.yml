@@ -1,0 +1,13 @@
+included:
+  - Sources
+excluded:
+  - .build
+analyzer_rules:
+  - unused_declaration
+  - unused_import
+disabled_rules:
+  - file_length
+  - force_try
+  - line_length
+  - trailing_comma
+  - type_body_length

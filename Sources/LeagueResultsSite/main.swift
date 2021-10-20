@@ -10,43 +10,57 @@ import OlivaDomain
 import Plot
 import Publish
 import SimulationLeagueSiteGenerator
-import SPMUtility
+import ArgumentParser
 
-let parser = ArgumentParser(commandName: "LeagueResultsSite",
-usage: "filename [--leagueData]",
-overview: "Outputs a static html Publish site")
+struct LeagueResultsSite: ParsableCommand {
+    @Argument(help: "The name of the league")
+    var leagueName: String?
 
-let leagueDataFilenameOption = parser.add(option: "--leagueData", shortName: "-l", kind: String.self, usage: "Filename for leagueData json")
+    @Option(name: [.short, .long], help: "Google analytics id")
+    var googleAnalyticsId: String?
 
-let arguments = Array(ProcessInfo.processInfo.arguments.dropFirst())
+    @Option(name: [.short, .long], help: "Path where the website html is written")
+    var path: String?
 
-let parsedArguments: SPMUtility.ArgumentParser.Result
+    var commandName: String = "League Results Site"
+    var abstract: String = "Create a web site based on simulated baseball game data"
 
-do {
-    parsedArguments = try parser.parse(arguments)
-} catch let error as ArgumentParserError {
-    print(error.description)
-    exit(0)
-} catch let error {
-    print(error.localizedDescription)
-    exit(0)
+    mutating func run() throws {
+        print("\u{1B}[33m\("Generating \(leagueName ?? "Sample League") HTML")\u{1B}[0m")
+
+        runMain(with: leagueName,
+                googleAnalyticsId: googleAnalyticsId,
+                path: path)
+    }
 }
 
-let leagueDataFilename = parsedArguments.get(leagueDataFilenameOption)
+LeagueResultsSite.main()
 
-let leagueData: LeagueData
-let leagueName: String
+func runMain(with leagueDataFilename: String?,
+           googleAnalyticsId: String?,
+           path pathString: String?) {
+    let leagueData: LeagueData
 
-if let leagueDataFilename = leagueDataFilename {
-    let leagueDataData = try! String(contentsOfFile: leagueDataFilename, encoding: .utf8).data(using: .utf8)
-    let decoder = JSONDecoder()
-    leagueData = try! decoder.decode(LeagueData.self, from: leagueDataData!)
-} else {
-    let leagueName = "Sample League"
-    leagueData = LeagueData(leagueName: leagueName,
-                                teams: teams,
-                                leagueResults: leagueResults,
-                                games: games)
+    if let leagueDataFilename = leagueDataFilename {
+        let leagueDataData = try! String(contentsOfFile: leagueDataFilename, encoding: .utf8).data(using: .utf8)
+        let decoder = JSONDecoder()
+        leagueData = try! decoder.decode(LeagueData.self, from: leagueDataData!)
+    } else {
+        let leagueName = "Sample League"
+        leagueData = LeagueData(leagueName: leagueName,
+                                    teams: teams,
+                                    leagueResults: leagueResults,
+                                    games: games)
+    }
+
+    let path: Path?
+    if let pathString = pathString {
+        path = Path(pathString)
+    } else {
+        path = nil
+    }
+
+    publishSimulationLeagueSite(from: leagueData,
+                                googleAnalyticsId: googleAnalyticsId,
+                                path: path)
 }
-
-publishSimulationLeagueSite(from: leagueData, googleAnalyticsId: nil)

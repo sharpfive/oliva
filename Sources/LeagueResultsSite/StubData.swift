@@ -118,7 +118,13 @@ let team1BatterBoxScores = [
 ]
 
 let team1PitcherBoxScores = [
-    PitcherBoxScore(playerName: "Rich Hill", inningsPitched: "9.0", hits: "7", runs: "3", walks: "3", strikeouts: "6", homeRuns: "1")
+    PitcherBoxScore(playerName: "Rich Hill",
+                    inningsPitched: "9.0",
+                    hits: "7",
+                    runs: "3",
+                    walks: "3",
+                    strikeouts: "6",
+                    homeRuns: "1")
 ]
 
 let team2BatterBoxScores = [
@@ -134,7 +140,13 @@ let team2BatterBoxScores = [
 ]
 
 let team2PitcherBoxScores = [
-    PitcherBoxScore(playerName: "Jacob deGrom", inningsPitched: "9.0", hits: "7", runs: "3", walks: "3", strikeouts: "6", homeRuns: "1")
+    PitcherBoxScore(playerName: "Jacob deGrom",
+                    inningsPitched: "9.0",
+                    hits: "7",
+                    runs: "3",
+                    walks: "3",
+                    strikeouts: "6",
+                    homeRuns: "1")
 ]
 
 let team1BoxScore = TeamBoxScoreViewModel(teamName: "Reds", batters: team1BatterBoxScores, pitchers: team1PitcherBoxScores)
@@ -143,7 +155,13 @@ let team2BoxScore = TeamBoxScoreViewModel(teamName: "Browns", batters: team2Batt
 let boxScore = BoxScoreViewModel(homeTeam: team1BoxScore, awayTeam: team2BoxScore)
 
 let team2PitcherBoxScore = [
-    PitcherBoxScore(playerName: "Robbie Ray", inningsPitched: "9.0", hits: "7", runs: "3", walks: "3", strikeouts: "6", homeRuns: "1")
+    PitcherBoxScore(playerName: "Robbie Ray",
+                    inningsPitched: "9.0",
+                    hits: "7",
+                    runs: "3",
+                    walks: "3",
+                    strikeouts: "6",
+                    homeRuns: "1")
 ]
 
 let team1 = TeamViewModel(name: "Reds", batters: team1Batters, pitchers: team1Pitchers)
@@ -154,11 +172,13 @@ let teams = [
     team2
 ]
 
+let leagueName = "Sample League"
+
 let metadatas = games.map { game in
     return SimulationLeagueWebsite.ItemMetadata(leagueName: leagueName, teams: teams, game: game)
 }
 
-let gameItems = metadatas.map{ metadata in
+let gameItems = metadatas.map { metadata in
     return Item<SimulationLeagueWebsite>(path: "\(metadata.game!.gameId)", sectionID: .game, metadata: metadata)
 }
 
