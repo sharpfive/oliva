@@ -15,10 +15,17 @@ import ArgumentParser
 
 struct LeagueResultsSite: ParsableCommand {
     @Argument(help: "The name of the league")
-    var leagueName: String
+    var leagueName: String?
+
+    var commandName: String = "League Results Site"
+    var abstract: String = "Create a web site based on simulated baseball game data"
 
     mutating func run() throws {
-        print("\u{1B}[33m\(leagueName)\u{1B}[0m")
+        if let leagueName = leagueName {
+            print("\u{1B}[33m\(leagueName)\u{1B}[0m")
+        } else {
+            print("\u{1B}[33m\("Generating a league from Sample Data")\u{1B}[0m")
+        }
 
         runIt(with: leagueName)
     }
