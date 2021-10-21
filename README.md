@@ -29,9 +29,3 @@ This is a sample implementation that shows how to use SimulationLeagueSiteGenera
 ### OlivaDomain
 All of the data models needed to create a baseball simulation website.
 
-### SimulationLeagueSiteGenerator
-Import this library to make your own HTML website
-
-*publishSimulationLeagueSite* is the exposed func, see LeagueResultsSite for how to use it.
-
-
