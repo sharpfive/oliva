@@ -19,10 +19,10 @@ let package = Package(
         .target(
             name: "LeagueResultsSite",
             dependencies: [
-                "Plot",
-                .product(name: "Publish", package: "publish"),
                 "OlivaDomain",
                 "SimulationLeagueSiteGenerator",
+                .product(name: "Plot", package: "plot"),
+                .product(name: "Publish", package: "publish"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]
         ),
@@ -33,9 +33,10 @@ let package = Package(
         .target(
             name: "SimulationLeagueSiteGenerator",
             dependencies: [
-                "Plot",
+                "OlivaDomain",
+                .product(name: "Plot", package: "plot"),
                 .product(name: "Publish", package: "publish"),
-                "OlivaDomain"]
+            ]
         )
     ]
 )
