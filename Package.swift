@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/JohnSundell/Plot.git", .upToNextMajor(from: "0.7.0")),
-        .package(url: "https://github.com/johnsundell/publish.git", .upToNextMajor(from: "0.1.0")),
+        .package(url: "https://github.com/johnsundell/Publish.git", .upToNextMajor(from: "0.1.0")),
         .package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMajor(from: "1.0.1")),
 
     ],
@@ -21,8 +21,8 @@ let package = Package(
             dependencies: [
                 "OlivaDomain",
                 "SimulationLeagueSiteGenerator",
-                .product(name: "Plot", package: "plot"),
-                .product(name: "Publish", package: "publish"),
+                .product(name: "Plot", package: "Plot"),
+                .product(name: "Publish", package: "Publish"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]
         ),
@@ -34,8 +34,8 @@ let package = Package(
             name: "SimulationLeagueSiteGenerator",
             dependencies: [
                 "OlivaDomain",
-                .product(name: "Plot", package: "plot"),
-                .product(name: "Publish", package: "publish"),
+                .product(name: "Plot", package: "Plot"),
+                .product(name: "Publish", package: "Publish"),
             ]
         )
     ]
