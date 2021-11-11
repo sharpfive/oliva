@@ -13,10 +13,6 @@ This repo is how I convert the results to a static HTML site. I'm definitely pus
 
 [Sample Stub Data Output](https://fansim.netlify.app/stub-data/leagueresults/)
 
-### That sounds awesome! Can I play?
-
-Sure. [Sign Up Here](https://docs.google.com/forms/d/e/1FAIpQLSdOK8FP7nigCnMjfHHWXg0MW_ZgqyheBOJ-kNLR4noC2vR6VA/viewform?usp=sf_link) and we'll let you know when we're allowing Early Access.
-
 ### What is Oliva?
 [Tony Oliva](https://www.baseball-reference.com/players/o/olivato01.shtml) was a Shortstop for the [Minnesota Twins](https://www.mlb.com/twins). He should be in the Hall of Fame. He's not, but Mr. Oliva might take some solace knowing there is an open source Swift library named after him. I sat next to him at a Twins game once. That was awesome.
 
