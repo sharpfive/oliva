@@ -13,7 +13,7 @@ This repo is how I convert the results to a static HTML site. I'm definitely pus
 
 [Sample Stub Data Output](https://fansim.netlify.app/stub-data/leagueresults/)
 
-### Where did the Oliva come from?
+### Where did the name Oliva come from?
 [Tony Oliva](https://www.baseball-reference.com/players/o/olivato01.shtml) was an outfielder for the [Minnesota Twins](https://www.mlb.com/twins). ~~He should be in the Hall of Fame. He's not, but Mr. Oliva might take some solace knowing there is an open source Swift library named after him.~~ I sat next to him at a Twins game once. That was awesome.
 
 Update 12/5/2021:
