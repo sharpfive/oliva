@@ -13,7 +13,25 @@ This repo is how I convert the results to a static HTML site. I'm definitely pus
 
 [Sample Stub Data Output](https://fansim.netlify.app/stub-data/leagueresults/)
 
-### What is Oliva?
-[Tony Oliva](https://www.baseball-reference.com/players/o/olivato01.shtml) was a Shortstop for the [Minnesota Twins](https://www.mlb.com/twins). He should be in the Hall of Fame. He's not, but Mr. Oliva might take some solace knowing there is an open source Swift library named after him. I sat next to him at a Twins game once. That was awesome.
+### Where did the Oliva come from?
+[Tony Oliva](https://www.baseball-reference.com/players/o/olivato01.shtml) was an outfielder for the [Minnesota Twins](https://www.mlb.com/twins). ~~He should be in the Hall of Fame. He's not, but Mr. Oliva might take some solace knowing there is an open source Swift library named after him.~~ I sat next to him at a Twins game once. That was awesome.
+
+Update 12/5/2021:
+
+Tony Oliva was elected to the Major League Baseball Hall of Fame! Welcome to the Hall, Tony O.
+
+
+## Targets
+
+### LeagueResultsSite
+This is a sample implementation that shows how to use SimulationLeagueSiteGenerator to create a HTML site from a json file of Oliva LeagueData. If no json file is specified, an HTML site using StubData will be used.
+
+### OlivaDomain
+All of the data models needed to create a baseball simulation website.
+
+### SimulationLeagueSiteGenerator
+Import this library to make your own HTML website
+
+*publishSimulationLeagueSite* is the exposed func, see LeagueResultsSite for how to use it.
 
 
